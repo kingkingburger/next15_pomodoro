@@ -14,23 +14,34 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:4049](http://localhost:3000) with your browser to see the result.
+### 뽀모도로 웹 사이트를 만드는 중이에요
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. 메인 화면(타이머 뷰)
+1) 원형 타이머
+   - 중앙에 시계 표시: 현재 남은 시간(초∙분)을 큰 숫자로 보여줘요.
+   - 원형 테두리 게이지: 시간이 흐를수록 진행률(퍼센트)이 시계 둘레를 따라 시각화돼요.
+     - 원의 둘레가 점점 채워지거나, 반대로 줄어드는 형태로 표현
+   - 컨트롤 버튼: 시작(▶), 멈춤(⏸), 초기화(⏹) 세 개 아이콘을 중앙에 배치(또는 하단에 배치해도 무방)
+2) 애니메이션 표현
+    - 집중(Work) 시간: 시간이 줄어들수록 뭔가 점점 ‘힘들어하는’ 캐릭터 혹은 아이콘 애니메이션
+   - 휴식(Break) 시간: 밝은 표정∙편안한 자세를 취하는 캐릭터 애니메이션
+3) 시간을 커스텀할 수 있는 입력창
+    - 워크 타임 입력, 브레이크 타임 입력 필드
+   - 스핀 박스(증감 버튼)나 드롭다운 형태도 좋고, 수동 입력(분 단위)도 가능하게 하면 돼요.
+   - 커스텀 설정 후 ‘적용(확인)’ 버튼을 누르면 메인 시계에서 해당 시간으로 자동 초기화
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2. 기타 화면(설정, 기록 등)
+1) 간단한 설정(Settings) 페이지
+    - 알림 사운드 선택(집중 종료, 휴식 종료, 만료 시 등)
+   - 테마(라이트/다크 모드)
+   - 애니메이션 On/Off 설정
+2) 기록(History) 페이지(선택 사항)
+    - 일자별로 총 Work 세션 시간, Break 세션 횟수를 시각화(그래프 형태)
+   - 메모나 회고를 짧게 남길 수 있도록 텍스트 필드 제공
+3. 사용자 플로우 예시
+    - 사용자가 웹앱에 접속 -> 메인 타이머 화면이 보임
+   - 처음에는 디폴트 25분 Work, 5분 Break가 설정됨
+   - “시작” 버튼 누르면 타이머가 진행 -> 원 테두리가 점점 채워지고/줄어들고, 애니메이션이 서서히 변함
+   - Work 시간이 끝나면 자동으로 5분 Break 시작 -> 이때는 편안한 애니메이션으로 전환
+   - Break가 끝나면 다시 Work로 돌아가거나, 유저가 직접 초기화/시간 설정(커스텀)
