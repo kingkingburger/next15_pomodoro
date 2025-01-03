@@ -112,7 +112,7 @@ export const MovingBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className="flex fixed w-screen h-screen">
+    <div className="w-screen h-screen">
       <canvas ref={canvasRef} />
     </div>
   );
