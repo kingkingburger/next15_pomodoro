@@ -12,21 +12,21 @@ export const ProgressBar: React.FC<{ progress: number }> = ({ progress }) => {
 
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = Math.min(centerX, centerY) * 0.8;
+    const radius = Math.min(centerX, centerY) * 0.7;
     const startAngle = -Math.PI / 2;
     const endAngle = startAngle + 2 * Math.PI * progress;
 
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw the border (gray circle)
-    context.strokeStyle = "white";
+    context.strokeStyle = "gray";
     context.lineWidth = 10;
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
     context.stroke();
 
     // Draw the progress arc
-    context.strokeStyle = "black";
+    context.strokeStyle = "white";
     context.lineWidth = 10;
     context.beginPath();
     context.arc(centerX, centerY, radius, startAngle, endAngle);
