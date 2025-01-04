@@ -1,5 +1,5 @@
-import MovingBackground from "@/component/moving-background";
-import PomodoroTimer from "@/component/poromodoTimer";
+import MovingBackground from "@/components/moving-background";
+import PomodoroTimer from "@/components/poromodoTimer";
 
 export default function Home() {
   return (

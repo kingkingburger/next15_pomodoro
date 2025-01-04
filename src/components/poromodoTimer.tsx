@@ -39,7 +39,7 @@ const PomodoroTimer = () => {
   const formattedTime = dayjs.duration(time, "seconds").format("mm:ss");
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen text-white">
       {/*<div className="text-lg mb-4">Cycle: {cycle}</div>*/}
       <div className="absolute text-white text-3xl font-bold">
         {formattedTime}
