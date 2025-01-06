@@ -81,7 +81,7 @@ const PomodoroTimer = () => {
         </div>
 
         {/* ProgressBar */}
-        <div className="w-80 h-80 md:w-96 md:h-96 relative">
+        <div className="md:w-97 md:h-97">
           <ProgressBar progress={progress} />
         </div>
 
