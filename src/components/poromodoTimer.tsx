@@ -5,6 +5,11 @@ import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
 import { ProgressBar } from "@/components/progressBar";
 
+import { IoIosSkipForward } from "react-icons/io";
+import { FaPauseCircle } from "react-icons/fa";
+import { FaPlayCircle } from "react-icons/fa";
+import { RiResetLeftFill } from "react-icons/ri";
+
 dayjs.extend(duration);
 
 const PomodoroTimer = () => {
@@ -67,14 +72,16 @@ const PomodoroTimer = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-white bg-gray-900">
+    <div className="flex flex-col items-center justify-center min-h-screen text-white relative">
       {/* 중앙 정렬을 위한 컨테이너 */}
       <div className="flex flex-col items-center justify-center space-y-8">
         {/* formattedTime 텍스트 */}
-        <div className="text-6xl md:text-8xl font-bold">{formattedTime}</div>
+        <div className="text-6xl md:text-8xl font-bold absolute">
+          {formattedTime}
+        </div>
 
         {/* ProgressBar */}
-        <div className="w-80 h-80 md:w-96 md:h-96">
+        <div className="w-80 h-80 md:w-96 md:h-96 relative">
           <ProgressBar progress={progress} />
         </div>
 
@@ -85,21 +92,21 @@ const PomodoroTimer = () => {
             onClick={handlePause}
             className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 transition-colors rounded"
           >
-            {isPaused ? "Resume" : "Pause"}
+            {isPaused ? <FaPlayCircle /> : <FaPauseCircle />}
           </button>
           {/* Reset 버튼 */}
           <button
             onClick={handleReset}
             className="px-6 py-3 bg-green-500 hover:bg-green-600 transition-colors rounded"
           >
-            Reset
+            <RiResetLeftFill />
           </button>
           {/* Skip 버튼 */}
           <button
             onClick={handleSkip}
             className="px-6 py-3 bg-red-500 hover:bg-red-600 transition-colors rounded"
           >
-            Skip
+            <IoIosSkipForward />
           </button>
         </div>
       </div>
