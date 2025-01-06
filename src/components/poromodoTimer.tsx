@@ -11,7 +11,6 @@ const PomodoroTimer = () => {
   const [time, setTime] = useState(25 * 60); // 25 minutes in seconds
   const [isBreakTime, setIsBreakTime] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
     if (time === 0) {
@@ -31,18 +30,11 @@ const PomodoroTimer = () => {
     return () => clearInterval(timer);
   }, [time, isBreakTime]);
 
-  useEffect(() => {
-    setCycle((prev) => prev + 1);
-  }, [isBreakTime]);
-
   // Format time to mm:ss
   const formattedTime = dayjs.duration(time, "seconds").format("mm:ss");
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-white relative">
-      {/* Cycle 정보 주석 처리 */}
-      {/* <div className="text-lg mb-4">Cycle: {cycle}</div> */}
-
       {/* formattedTime 텍스트를 중앙에 크게 배치 */}
       <div className="absolute inset-0 flex items-center justify-center text-white text-6xl md:text-8xl font-bold">
         {formattedTime}
