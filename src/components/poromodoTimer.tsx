@@ -72,43 +72,38 @@ const PomodoroTimer = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-white relative">
-      {/* 중앙 정렬을 위한 컨테이너 */}
-      <div className="flex flex-col items-center justify-center space-y-8">
-        {/* formattedTime 텍스트 */}
-        <div className="text-6xl md:text-8xl font-bold absolute">
+    <div className="flex flex-col items-center justify-center min-h-screen text-white bg-gray-900">
+      {/* ProgressBar와 시간을 겹쳐서 중앙에 두기 위한 래퍼 */}
+      <div className="relative w-128 h-128 flex items-center justify-center">
+        <ProgressBar progress={progress} />
+        <div className="text-6xl md:text-8xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           {formattedTime}
         </div>
+      </div>
 
-        {/* ProgressBar */}
-        <div className="md:w-97 md:h-97">
-          <ProgressBar progress={progress} />
-        </div>
-
-        {/* 버튼들 */}
-        <div className="flex space-x-4 text-2xl">
-          {/* Pause 버튼 */}
-          <button
-            onClick={handlePause}
-            className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 transition-colors rounded"
-          >
-            {isPaused ? <FaPlayCircle /> : <FaPauseCircle />}
-          </button>
-          {/* Reset 버튼 */}
-          <button
-            onClick={handleReset}
-            className="px-6 py-3 bg-green-500 hover:bg-green-600 transition-colors rounded"
-          >
-            <RiResetLeftFill />
-          </button>
-          {/* Skip 버튼 */}
-          <button
-            onClick={handleSkip}
-            className="px-6 py-3 bg-red-500 hover:bg-red-600 transition-colors rounded"
-          >
-            <IoIosSkipForward />
-          </button>
-        </div>
+      {/* 버튼들 */}
+      <div className="flex space-x-4 text-2xl mt-8">
+        {/* Pause 버튼 */}
+        <button
+          onClick={handlePause}
+          className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 transition-colors rounded"
+        >
+          {isPaused ? <FaPlayCircle /> : <FaPauseCircle />}
+        </button>
+        {/* Reset 버튼 */}
+        <button
+          onClick={handleReset}
+          className="px-6 py-3 bg-green-500 hover:bg-green-600 transition-colors rounded"
+        >
+          <RiResetLeftFill />
+        </button>
+        {/* Skip 버튼 */}
+        <button
+          onClick={handleSkip}
+          className="px-6 py-3 bg-red-500 hover:bg-red-600 transition-colors rounded"
+        >
+          <IoIosSkipForward />
+        </button>
       </div>
     </div>
   );
